@@ -1,52 +1,334 @@
 /* 
-Interfaz del lobo
+Interfaz del lobo - Diseño Moderno
 */
 
+* {
+    box-sizing: border-box;
+}
+
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
-    text-align:center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    padding-bottom: 40px;
 }
 
 /* Usuario 4: header */
 .header{
-    padding:40px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    animation: slideDown 0.6s ease-out;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.header p {
+    margin: 15px 0 0 0;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
 }
 
 /* contenedor */
 .container{
-    width:90%;
-    max-width:900px;
-    margin:auto;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0;
 }
 
 /* tarjetas */
 .card{
-    background:white;
-    color:black;
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    background: white;
+    color: #333;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* imagen */
-img{
-    width:100%;
-    border-radius:10px;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    color: #667eea;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card h3 {
+    color: #764ba2;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* Layout flex para info */
+.info-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+#descripcion {
+    flex: 1 1 320px;
+    min-width: 260px;
+    max-width: 480px;
+    text-align: left;
+}
+
+#descripcion p {
+    line-height: 1.8;
+    font-size: 1em;
+    margin: 15px 0;
+    color: #555;
+}
+
+#descripcion ul {
+    list-style: none;
+    padding: 0;
+}
+
+#descripcion li {
+    margin: 12px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+#descripcion li:before {
+    content: "▸";
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+#descripcion a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+#descripcion a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+#imagen {
+    flex: 0 1 320px;
+    min-width: 220px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#imagen h2 {
+    color: #c1c8eb;
+    font-size: 1.5em;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+.lobo-img {
+    width: 100%;
+    max-width: 50rem;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+    transition: all 0.4s ease;
+    object-fit: cover;
+}
+
+.lobo-img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 30px 70px rgba(102, 126, 234, 0.5);
+}
+
+@media (max-width: 800px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .info-flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    #imagen, #descripcion {
+        max-width: 100%;
+    }
+    .lobo-img {
+        max-width: 100%;
+    }
+    .header h1 {
+        font-size: 2em;
+    }
+    .header p {
+        font-size: 1em;
+    }
+}
+
+/* Botón bonito para cambiar tema */
+button.theme-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+button.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+button.theme-toggle:active {
+    transform: translateY(-1px);
+}
+
+.icon-sun,
+.icon-moon {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+    position: absolute;
+}
+
+.icon-moon {
+    opacity: 0;
+}
+
+.dark .icon-sun {
+    opacity: 0;
+}
+
+.dark .icon-moon {
+    opacity: 1;
 }
 
 /* modo oscuro */
-.dark{
-    background:#111;
-    color:white;
+.dark {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e0e0;
+}
+
+.dark .header {
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .card {
+    background: #2a2a3e;
+    color: #e0e0e0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.dark .card h2,
+.dark .card h3 {
+    color: #667eea;
+}
+
+.dark #descripcion p,
+.dark #descripcion li {
+    color: #b0b0c0;
 }
 
 /* responsive */
-@media (max-width:600px){
-    .card{
-        margin:10px;
+@media (max-width: 600px) {
+    .card {
+        margin: 10px;
+        padding: 20px;
     }
+    .container {
+        width: 95%;
+    }
+}
+
+/* Animaciones */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Párrafo interactivo */
+p:last-of-type {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 10px;
 }
