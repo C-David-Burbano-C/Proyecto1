@@ -18,45 +18,63 @@ Estructura base HTML-->
 
 <!-- Encabezado -->
 <header class="header">
-    <h1>El Lobo</h1>
-    <p>Conoce uno de los animales más fascinantes del mundo</p>
+    <div class="header-content">
+        <div class="header-text">
+            <h1>El Lobo</h1>
+            <p>Conoce uno de los animales más fascinantes del mundo</p>
+        </div>
+        <button class="theme-toggle" id="themeBtn" title="Cambiar tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
 </header>
 
 <!-- CONTENIDO GENERAL -->
 <main class="container">
 
-    <!-- Insertará imagen aquí -->
-    <section id="imagen">
-    <h2>Imagen del Lobo</h2>
-    <img 
-        src="https://images.pexels.com/photos/30845537/pexels-photo-30845537.jpeg"
-        alt="Lobo salvaje en su habitat natural"
-        width="400">
-    </section>
 
-
-    <!--Insertará descripción aquí -->
-    <section id="descripcion" class="card">
-        <h2>Descripción</h2>
-
-        <p>
-            El lobo (Canis lupus) es un mamífero carnívoro perteneciente a la familia de los cánidos. 
-            Es reconocido por su inteligencia, su fuerte estructura social y su capacidad de adaptación 
-            a distintos ecosistemas. Vive en manadas organizadas y mantiene lazos familiares sólidos.
-        </p>
-
-        <h3>Características</h3>
-        <ul>
-            <li><strong>Hábitat:</strong> Bosques, montañas, tundras y praderas del hemisferio norte.</li>
-            <li><strong>Alimentación:</strong> Carnívoro; se alimenta principalmente de ciervos y otros mamíferos.</li>
-            <li><strong>Comportamiento:</strong> Vive en manadas con jerarquías sociales bien definidas.</li>
-            <li><strong>Comunicación:</strong> Utiliza aullidos, gruñidos y lenguaje corporal.</li>
-        </ul>
-
-        <a href="https://es.wikipedia.org/wiki/Canis_lupus" target="_blank">
-            Más información sobre el lobo
-        </a>
-    </section>
+    <div class="info-flex">
+        <!-- Descripción a la izquierda -->
+        <section id="descripcion" class="card">
+            <h2>Descripción</h2>
+            <p>
+                El lobo (Canis lupus) es un mamífero carnívoro perteneciente a la familia de los cánidos. 
+                Es reconocido por su inteligencia, su fuerte estructura social y su capacidad de adaptación 
+                a distintos ecosistemas. Vive en manadas organizadas y mantiene lazos familiares sólidos.
+            </p>
+            <h3>Características</h3>
+            <ul>
+                <li><strong>Hábitat:</strong> Bosques, montañas, tundras y praderas del hemisferio norte.</li>
+                <li><strong>Alimentación:</strong> Carnívoro; se alimenta principalmente de ciervos y otros mamíferos.</li>
+                <li><strong>Comportamiento:</strong> Vive en manadas con jerarquías sociales bien definidas.</li>
+                <li><strong>Comunicación:</strong> Utiliza aullidos, gruñidos y lenguaje corporal.</li>
+            </ul>
+            <a href="https://es.wikipedia.org/wiki/Canis_lupus" target="_blank">
+                Más información sobre el lobo
+            </a>
+        </section>
+        <!-- Imagen a la derecha -->
+        <section id="imagen">
+            <h2>Imagen del Lobo</h2>
+            <img 
+                src="https://images.pexels.com/photos/30845537/pexels-photo-30845537.jpeg"
+                alt="Lobo salvaje en su habitat natural"
+                class="lobo-img">
+        </section>
+    </div>
 
 </main>
 
